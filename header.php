@@ -26,12 +26,12 @@
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <?php
-                $defaults = array(
+                $nav_options = array(
                 	'theme_location'  => 'main-menu',
                 	'menu_class'      => 'nav navbar-nav navbar-right'
                 );
 
-                wp_nav_menu( $defaults );
+                wp_nav_menu($nav_options);
                 ?>
 			</div>
 		</div>

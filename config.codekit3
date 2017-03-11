@@ -7,8 +7,14 @@
 		"uuidString": "72280E56-5362-45FF-8532-BCD8B0E39F8A"
 		}
 	],
-"creatorBuild": "25568",
+"creatorBuild": "25704",
 "files": {
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.gitignore",
+		"oF": 0
+		},
 	"\/404.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1002,10 +1008,12 @@
 	"\/assets\/images\/logo.png": {
 		"ft": 32768,
 		"iS": 3556,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/assets\/images\/logo.png",
 		"oF": 0,
-		"opt": 0
+		"opt": 0,
+		"q": 100
 		},
 	"\/assets\/js\/bootstrap.min.js": {
 		"ft": 64,
@@ -1022,10 +1030,10 @@
 		"oAP": "\/author.php",
 		"oF": 0
 		},
-	"\/blog.php": {
+	"\/category.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/blog.php",
+		"oAP": "\/category.php",
 		"oF": 0
 		},
 	"\/comments.php": {
@@ -1058,6 +1066,12 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
+	"\/page-templates\/page-example.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/page-example.php",
+		"oF": 0
+		},
 	"\/page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1073,10 +1087,12 @@
 	"\/screenshot.png": {
 		"ft": 32768,
 		"iS": 129347,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/screenshot.png",
 		"oF": 0,
-		"opt": 0
+		"opt": 0,
+		"q": 100
 		},
 	"\/search.php": {
 		"ft": 8192,
@@ -1793,6 +1809,10 @@
 			"active": 1,
 			"optionString": ""
 			},
+		"no-compare-neg-zero": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-cond-assign": {
 			"active": 1,
 			"optionString": "'except-parens'"
@@ -2272,6 +2292,10 @@
 		"no-with": {
 			"active": 0,
 			"optionString": ""
+			},
+		"nonblock-statement-body-position": {
+			"active": 0,
+			"optionString": "'beside'"
 			},
 		"object-curly-newline": {
 			"active": 0,
@@ -2872,7 +2896,8 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"quality": 100
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
@@ -2965,7 +2990,9 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"enableLossy": 1,
+		"quality": 100
 		},
 	"languageDefaultsPUG": {
 		"autoOutputAction": 0,

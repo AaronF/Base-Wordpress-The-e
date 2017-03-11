@@ -5,41 +5,56 @@
  */
 
 get_header();
-get_sidebar("ttt");?>
+?>
 
-<div class="col-md-8 col-sm-8 content">
-    <h2>
-        Author: <?php echo get_the_author();?>
-    </h2>
-    
-    <?php while ( have_posts() ) : the_post(); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div itemtype="http://schema.org/Article" id="post-<?php the_ID(); ?>" <?php post_class("col-md-12 col-sm-12 col-xs-12 blog-item"); ?>>
+					<?php
+                    if(has_post_thumbnail()){
+						?>
+						<div class="featured-image">
+                            <a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('large');?>
+							</a>
+                        </div>
+						<?php
+					}
+					?>
+                    <div class="col-md-12 blog-title">
+                        <h2 class="title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <div class="posted">
+                            Posted on <span class="pink updated published" itemprop="datePublished" content="<?php echo get_the_date(); ?>"><?php the_time('l, F jS, Y') ?></span> by <span class="vcard author post-author"><span class="fn"><?php the_author(); ?></span></span> in <?php the_category(', ') ?>
+                        </div>
+                    </div>
+					<div class="col-md-12 blog-content" itemprop="articleBody">
+						<?php the_content(); ?>
+						<!-- <br><br> -->
+						<!-- <a href="<?php the_permalink();?>" class="button blog-more">Read More &raquo;</a> -->
+					</div>
+					<div class="clearfix"></div>
+                </div>
+            <?php endwhile; ?>
 
-        <article itemscope itemtype="http://schema.org/Article" id="post-<?php the_ID(); ?>">
-            <div class="article-title">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <?php the_title('<h2 itemprop="name">', '</h2>'); ?>
-                </a>
-            </div>
-            <div class="article-meta" itemprop="datePublished" content="<?php echo get_the_date(); ?>">
-                <?php echo get_the_date(); ?>
-            </div>
+    		<?php wp_reset_postdata(); ?>
 
-            <div class="article-body" itemprop="articleBody">
-                <?php the_content("Continue reading " . the_title('', '', false)); ?>
-            </div>
-        </article>
+    		<div class="clearfix"></div>
 
-    <?php endwhile; ?>
+            <?php if (  $wp_query->max_num_pages > 1 ) : ?>
 
-    <?php if($wp_query->max_num_pages > 1):?>
-        <nav id="nav-below">
-            <div class="nav-previous"><?php next_posts_link(); ?></div>
-            <div class="nav-next"><?php previous_posts_link(); ?></div>
-        </nav>
-    <?php endif; ?>
+    			<nav class="navigation">
+    				<span class="older right"><?php next_posts_link('Older Entries &raquo;'); ?></span>
+    				<span class="newer left"><?php previous_posts_link('&laquo; Newer Entries'); ?></span>
+    			</nav>
 
-    <?php /* Only load comments on single post/pages*/ ?>
-    <?php if(is_page() || is_single()) : comments_template( '', true ); endif; ?>
+    		<?php endif; ?>
+        </div>
+        <div class="col-sm-3">
+            <?php get_sidebar(); ?>
+        </div>
+	</div>
 </div>
 
 <?php get_footer(); ?>
