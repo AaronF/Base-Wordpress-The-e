@@ -15,7 +15,7 @@ get_header();
                     <div class="col-md-12 blog-title">
                         <h2 class="title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="posted">
-                            Posted on <span class="pink updated published" itemprop="datePublished" content="<?php echo get_the_date(); ?>"><?php the_time('l, F jS, Y') ?></span> by <span class="vcard author post-author"><span class="fn"><?php the_author(); ?></span></span> in <?php the_category(', ') ?>
+                            Posted on <span class="updated published" itemprop="datePublished" content="<?php echo get_the_date(); ?>"><?php the_time('l, F jS, Y') ?></span> by <span class="vcard author post-author"><span class="fn"><?php the_author(); ?></span></span> in <?php the_category(', ') ?>
                         </div>
                     </div>
 					<div class="col-md-12 blog-content" itemprop="articleBody">
