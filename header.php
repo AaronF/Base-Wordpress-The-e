@@ -4,11 +4,11 @@
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<title><?php wp_title(); ?></title>
+	<title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
 
 	<?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <div class="header">
 	<nav class="navbar navbar-default main-nav">
 		<div class="container relative">
