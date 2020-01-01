@@ -1,0 +1,17 @@
+.c-button {
+	font: inherit;
+	margin: 0;
+	overflow: visible;
+	appearance: button;
+	border: 0;
+	cursor: pointer;
+	text-align: center;
+
+	@include hocus() {
+		text-decoration: none;
+	}
+}
+
+.c-button--primary {
+	//Branded button
+}

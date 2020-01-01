@@ -1,0 +1,11 @@
+/**
+ * Default styles for anchor tags
+ */
+
+a {
+	color: $colour-links;
+	@include hocus() {
+		color: $colour-links;
+		text-decoration: underline;
+	}
+}

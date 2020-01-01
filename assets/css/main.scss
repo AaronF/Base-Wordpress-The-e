@@ -1,257 +1,35 @@
 /**
- * Base Wordpress Theme (aaronfisher.co)
- * Main stylesheet
+ * ABOUT
+ * The setup below is based on the ITCSS concept from CSS Wizardry - more about the concept can be found here: https://csswizardry.com/2018/11/itcss-and-skillshare/
  */
 
-@import "libraries/bootstrap.min.scss";
-@import "libraries/font-awesome.min.scss";
-@import "includes/variables";
-@import "includes/mixins";
+//Settings/config
+@import "settings/all";
 
-//Colours
+//Tools
+@import "tools/all";
+
+//Generic
+@import "../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../node_modules/bootstrap/scss/_transitions.scss";
+@import "../node_modules/bootstrap/scss/_dropdown.scss";
+@import "../node_modules/bootstrap/scss/_navbar.scss";
+
+@import "generic/generic.type";
+
+//Elements
+@import "elements/elements.page";
+@import "elements/elements.links";
+@import "elements/elements.headings";
+@import "elements/elements.images";
+
+//Components
+@import "components/components.buttons";
 
 
-$break-small: 600px;
 
-/**
- * CSS Elements
- */
-html, body {
-	background-color: #FFF;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   	font-weight: 300;
-	line-height: 1.6em;
-	font-size: 15px;
-}
 
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-/**
- * Responsive line breaks
- */
-.rwd-line {
-	display: inline;
-	@media screen and (max-width: $break-small){
-		display: block;
-	}
-}
-
-/*
- * Navbar
- */
-.header {
-	.navbar {
-		.collapse {
-			.nav {
-				margin: 0;
-				.menu-item {
-					a {
-						color: #FFF;
-					}
-				}
-			}
-		}
-	}
-
-	.navbar-nav {
-		margin: 0;
-		display: inline-block;
-  		float: none;
-  		vertical-align: top;
-	}
-
-	.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-	    margin-left: 0;
-	}
-
-	.main-nav {
-		min-height: 100px;
-		padding: 10px 0;
-		border: none;
-	    margin-bottom: 0;
-	    background-color: #e4e4e4;
-	    border-radius: 0;
-		.container {
-			.navbar-brand {
-				height: auto;
-				padding: 0;
-				img {
-					max-width: 200px;
-					max-height: 100%;
-				}
-			}
-			.navbar-collapse {
-				padding: 0;
-				text-align: center;
-				.nav {
-					li {
-						list-style: none;
-						padding: 0 15px;
-						a {
-							color: #000;
-							font-size: 16px;
-				            padding: 0;
-				            line-height:80px;
-							@include transition(background-color 0.3s ease);
-							&:hover, &:focus {
-								// color: $brand-blue;
-						        // background-color: #555;
-
-							}
-						}
-						&:hover {
-							.sub-menu {
-								display: block !important;
-							}
-						}
-						&:first-child {
-							padding-left: 0;
-						}
-						&:last-child {
-							padding-right: 0;
-						}
-						//sub-menu
-						.sub-menu {
-							display: none;
-						    position: absolute;
-						    min-width: 100%;
-						    // top: 0;
-							left: 5px;
-						    z-index: 9999;
-						    padding: 0;
-						    background-color: #FFF;
-							min-width: 200px;
-							text-align: left;
-							.menu-item {
-								list-style: none;
-								padding: 0 10px;
-								a {
-									line-height: 40px !important;
-									font-weight: 400;
-									border-bottom: none;
-									&:hover {
-										text-decoration: none;
-										font-weight: 700;
-									}
-								}
-								&:hover {
-									// background-color: #555;
-								}
-							}
-						}
-					}
-					.current_page_item {
-						a {
-							// color: $brand-blue;
-							font-weight: 700;
-							// border-bottom: 4px solid $brand-blue;
-						}
-				    }
-				}
-			}
-		}
-		.navbar-toggle {
-			border-color: #000;
-			.icon-bar {
-				background-color: #000;
-			}
-		}
-	}
-
-	//Breakpoint for bootstrap navigation on the iPad in portrait
-	@media (max-width: 1000px) {
-	    .navbar-header {
-	        float: none;
-	    }
-	    .navbar-left,.navbar-right {
-	        float: none !important;
-	    }
-	    .navbar-toggle {
-	        display: block;
-	    }
-	    .navbar-collapse {
-	        padding: 0;
-	    }
-	    .navbar-fixed-top {
-			top: 0;
-			border-width: 0 0 1px;
-		}
-	    .navbar-collapse.collapse {
-	        display: none!important;
-	    }
-	    .navbar-nav {
-	        float: none!important;
-			margin-top: 7.5px;
-		}
-		.navbar-nav>li {
-	        float: none;
-	        padding: 0 10px 0 15px;
-	    }
-	    .navbar-nav>li>a {
-	        padding-top: 10px;
-	        padding-bottom: 10px;
-	    }
-	    .collapse.in{
-	  		display:block !important;
-		}
-	    .main-nav .menu-item a {
-	        line-height: 35px !important;
-	    }
-	    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-	        border: none;
-	    }
-	}
-
-	//Phone
-	@media screen and (max-width: $break-small){
-		.navbar {
-			.collapse {
-				.nav {
-					margin: 0;
-				}
-			}
-		}
-		.main-nav {
-			.container {
-				.navbar-collapse {
-					width:100%;
-					.nav {
-						.menu-item {
-							padding: 0;
-							a {
-								line-height: 35px !important;
-							}
-							.sub-menu {
-								background-color: transparent;
-								position: relative;
-								display: block;
-							}
-				        }
-					}
-				}
-			}
-		}
-		.social-media-icons {
-			text-align: center;
-			padding-top: 20px;
-		}
-	}
-}
+//Utilities
+@import "utilities/utilities.debug";
+@import "utilities/utilities.healthcheck";
